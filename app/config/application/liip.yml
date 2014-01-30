@@ -1,0 +1,4 @@
+liip_monitor:
+    checks:
+        php_extensions: [pdo, gd, curl, intl, json, mysql]
+        writable_directory: ["%kernel.root_dir%/../var"]

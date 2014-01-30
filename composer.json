@@ -8,31 +8,37 @@
 			"Alsar\\Project\\" : "src/"
 		}
 	},
-    "require" : {
-        "php" : ">=5.5.0",
-        "symfony/symfony" : "~2.4",
-        "doctrine/orm" : "~2.4",
-        "doctrine/doctrine-bundle" : "~1.2",
-        "twig/extensions" : "~1.0",
-        "symfony/assetic-bundle" : "~2.3",
-        "symfony/swiftmailer-bundle" : "~2.3",
-        "symfony/monolog-bundle" : "~2.4",
-        "sensio/distribution-bundle" : "~2.3",
-        "sensio/framework-extra-bundle" : "~2.3",
-        "sensio/generator-bundle" : "~2.3",
-        "jms/di-extra-bundle" : "~1.4",
-        "doctrine/doctrine-fixtures-bundle" : "~2.2",
-        "doctrine/doctrine-migrations-bundle" : "2.1.*@dev",
-        "doctrine/migrations" : "1.0.*@dev",
-        "friendsofsymfony/user-bundle" : "2.0.*@dev",
-        "jms/security-extra-bundle" : "~1.5",
-        "incenteev/composer-parameter-handler" : "~2.1",
-        "beberlei/assert" : "~1.6",
-        "alsar/common" : "~0.1"
-    },
-    "require-dev" : {
-        "fabpot/php-cs-fixer" : "~0.4"
-    },
+	"require" : {
+		"php" : ">=5.5.0",
+		"symfony/symfony" : "~2.4",
+		"doctrine/orm" : "~2.4",
+		"doctrine/doctrine-bundle" : "~1.2",
+		"twig/extensions" : "~1.0",
+		"symfony/assetic-bundle" : "~2.3",
+		"symfony/swiftmailer-bundle" : "~2.3",
+		"symfony/monolog-bundle" : "~2.4",
+		"sensio/distribution-bundle" : "~2.3",
+		"sensio/framework-extra-bundle" : "~2.3",
+		"sensio/generator-bundle" : "~2.3",
+		"jms/di-extra-bundle" : "~1.4",
+		"doctrine/doctrine-fixtures-bundle" : "~2.2",
+		"doctrine/doctrine-migrations-bundle" : "2.1.*@dev",
+		"doctrine/migrations" : "1.0.*@dev",
+		"friendsofsymfony/user-bundle" : "2.0.*@dev",
+		"jms/security-extra-bundle" : "~1.5",
+		"incenteev/composer-parameter-handler" : "~2.1",
+		"beberlei/assert" : "~2.0",
+		"alsar/common" : "~0.1",
+		"alsar/specification" : "~0.1",
+		"jms/serializer-bundle" : "~0.13",
+		"nelmio/api-doc-bundle" : "~2.4",
+		"friendsofsymfony/rest-bundle" : "~1.2"
+	},
+	"require-dev" : {
+		"fabpot/php-cs-fixer" : "~0.4",
+		"liip/monitor-bundle" : "~1.0",
+		"phpunit/phpunit" : "~3.7"
+	},
 	"scripts" : {
 		"post-install-cmd" : [
 			"Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
@@ -49,12 +55,12 @@
 			"Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile"
 		]
 	},
-    "repositories" : [{
-            "name" : "alsar/common",
-            "type" : "git",
-            "url" : "https://github.com/alsar/common"
-        }
-    ],
+	"repositories" : [{
+			"name" : "alsar/common",
+			"type" : "git",
+			"url" : "https://github.com/alsar/common"
+		}
+	],
 	"config" : {
 		"bin-dir" : "bin"
 	},

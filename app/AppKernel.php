@@ -22,7 +22,12 @@ class AppKernel extends Kernel
             new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
             new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
             new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
-//            new FOS\UserBundle\FOSUserBundle(),
+
+#            new FOS\UserBundle\FOSUserBundle(),
+            new FOS\RestBundle\FOSRestBundle(),
+            new JMS\SerializerBundle\JMSSerializerBundle(),
+            new Nelmio\ApiDocBundle\NelmioApiDocBundle(),
+            new Liip\MonitorBundle\LiipMonitorBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
@@ -37,7 +42,11 @@ class AppKernel extends Kernel
     public function registerContainerConfiguration(LoaderInterface $loader)
     {
         $loader->load(__DIR__.'/config/config_'.$this->getEnvironment().'.yml');
-        $loader->load(__DIR__.'/config/application.yml');
+        $loader->load(__DIR__.'/config/application/application.yml');
+        $loader->load(__DIR__.'/config/application/doctrine.yml');
+        $loader->load(__DIR__.'/config/application/jms.yml');
+        $loader->load(__DIR__.'/config/application/liip.yml');
+        $loader->load(__DIR__.'/config/application/fos.yml');
         $loader->load(__DIR__.'/config/parameters.yml');
     }
 
