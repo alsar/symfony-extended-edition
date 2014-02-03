@@ -7,8 +7,8 @@ framework:
         gc_maxlifetime: 3600
         gc_probability: 1
         gc_divisor: 10
-        save_path: %kernel.root_dir%/../var/session
-    translator: { fallback: %locale% }
+        save_path: "%kernel.var_dir%/session"
+    translator: { fallback: "%locale%" }
 
 #fos_user:
 #    db_driver: orm

@@ -51,11 +51,21 @@ class AppKernel extends Kernel
     }
 
     /**
+     * Gets the var directory.
+     *
+     * @return string The var directory
+     */
+    public function getVarDir()
+    {
+        return $this->rootDir.'/../var';
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function getCacheDir()
     {
-        return $this->rootDir.'/../var/cache/'.$this->environment;
+        return $this->getVarDir().'/cache/'.$this->environment;
     }
 
     /**
@@ -63,6 +73,16 @@ class AppKernel extends Kernel
      */
     public function getLogDir()
     {
-        return $this->rootDir.'/../var/log';
+        return $this->getVarDir().'/log';
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function getKernelParameters()
+    {
+        $extraParameters = ['kernel.var_dir' => $this->getVarDir()];
+
+        return array_merge($extraParameters, parent::getKernelParameters());
     }
 }
