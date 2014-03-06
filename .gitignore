@@ -5,6 +5,7 @@
 /vendor/
 /bin/
 /composer.phar
+/composer.lock
 /app/config/parameters.yml
 /vendor
 /web/upload/*
