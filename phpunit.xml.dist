@@ -11,31 +11,28 @@
     processIsolation            = "false"
     stopOnFailure               = "false"
     syntaxCheck                 = "false"
-    bootstrap                   = "bootstrap.php.cache" >
+    bootstrap                   = "tests/bootstrap.php" >
 
     <testsuites>
         <testsuite name="Project Test Suite">
-            <directory>../src/*/*Bundle/Tests</directory>
-            <directory>../src/*/Bundle/*Bundle/Tests</directory>
+            <directory>./tests</directory>
         </testsuite>
     </testsuites>
 
-    <!--
-    <php>
-        <server name="KERNEL_DIR" value="/path/to/your/app/" />
-    </php>
-    -->
-
     <filter>
         <whitelist>
-            <directory>../src</directory>
+            <directory>./src</directory>
             <exclude>
-                <directory>../src/*/*Bundle/Resources</directory>
-                <directory>../src/*/*Bundle/Tests</directory>
-                <directory>../src/*/Bundle/*Bundle/Resources</directory>
-                <directory>../src/*/Bundle/*Bundle/Tests</directory>
+                <directory>./src/Application/*Bundle/Resources</directory>
+                <directory>./src/Application/*Bundle/DependencyInjection</directory>
+                <file>./src/Application/*Bundle/*Bundle.php</file>
             </exclude>
         </whitelist>
     </filter>
 
+    <logging>
+        <log type="coverage-html" target="./build/phpunit/report" charset="UTF-8"/>
+        <log type="coverage-php" target="./build/phpunit/coverage.serialized"/>
+        <log type="coverage-text" target="php://stdout" showUncoveredFiles="false"/>
+    </logging>
 </phpunit>
