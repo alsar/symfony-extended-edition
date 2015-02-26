@@ -10,7 +10,4 @@
 /vendor
 /web/upload/*
 /phpunit.xml
-.buildpath
-.project
-.settings/
 !.gitkeep

@@ -27,7 +27,6 @@ class AppKernel extends Kernel
             new FOS\RestBundle\FOSRestBundle(),
             new JMS\SerializerBundle\JMSSerializerBundle(),
             new Nelmio\ApiDocBundle\NelmioApiDocBundle(),
-            new Liip\MonitorBundle\LiipMonitorBundle(),
         );
 
         if (in_array($this->getEnvironment(), ['dev', 'test'])) {
@@ -46,7 +45,6 @@ class AppKernel extends Kernel
         $loader->load(__DIR__.'/config/application/application.yml');
         $loader->load(__DIR__.'/config/application/doctrine.yml');
         $loader->load(__DIR__.'/config/application/jms.yml');
-        $loader->load(__DIR__.'/config/application/liip.yml');
         $loader->load(__DIR__.'/config/application/fos.yml');
         $loader->load(__DIR__.'/config/parameters.yml');
     }
@@ -64,9 +62,23 @@ class AppKernel extends Kernel
     /**
      * {@inheritdoc}
      */
+    protected function getKernelParameters()
+    {
+        $extraParameters = ['kernel.var_dir' => $this->getVarDir()];
+
+        return array_merge($extraParameters, parent::getKernelParameters());
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function getCacheDir()
     {
-        return $this->getVarDir().'/cache/'.$this->environment;
+        if (in_array($this->environment, array('dev', 'test'))) {
+            return '/dev/shm/appname/cache/' .  $this->environment;
+        }
+
+        return parent::getCacheDir();
     }
 
     /**
@@ -74,16 +86,10 @@ class AppKernel extends Kernel
      */
     public function getLogDir()
     {
-        return $this->getVarDir().'/log';
-    }
+        if (in_array($this->environment, array('dev', 'test'))) {
+            return '/dev/shm/appname/logs';
+        }
 
-    /**
-     * {@inheritdoc}
-     */
-    protected function getKernelParameters()
-    {
-        $extraParameters = ['kernel.var_dir' => $this->getVarDir()];
-
-        return array_merge($extraParameters, parent::getKernelParameters());
+        return parent::getLogDir();
     }
 }
