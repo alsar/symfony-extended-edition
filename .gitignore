@@ -4,6 +4,8 @@
 /build/
 /vendor/
 /bin/
+/web/build/
+/node_modules/
 /composer.phar
 /composer.lock
 /app/config/parameters.yml

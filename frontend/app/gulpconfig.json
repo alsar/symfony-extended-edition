@@ -1,0 +1,26 @@
+{
+  "build_dir": "../../web/build/app",
+  "vendor_files": {
+    "js": [
+      "js/*",
+      "../../vendor/jquery/dist/jquery.min.*",
+      "../../vendor/bootstrap/dist/js/bootstrap.min.js"
+    ],
+    "less": [
+      "less/app.less",
+      "less/style.less"
+    ],
+    "css": [
+    ],
+    "images": [
+        "images/**"
+    ],
+    "fonts": [
+      "../../vendor/bootstrap/fonts/*",
+      "fonts/*"
+    ]
+  },
+  "vendor_libraries": [
+    ""
+  ]
+}
