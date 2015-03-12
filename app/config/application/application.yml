@@ -10,6 +10,12 @@ framework:
         save_path: "%kernel.var_dir%/session"
     translator: { fallback: "%locale%" }
 
+
+twig:
+    paths:
+        "%kernel.root_dir%/../frontend/app/views": app
+
+
 #fos_user:
 #    db_driver: orm
 #    firewall_name: main

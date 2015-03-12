@@ -13,7 +13,6 @@ class AppKernel extends Kernel
             new Symfony\Bundle\TwigBundle\TwigBundle(),
             new Symfony\Bundle\MonologBundle\MonologBundle(),
             new Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle(),
-            new Symfony\Bundle\AsseticBundle\AsseticBundle(),
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
 
@@ -23,10 +22,12 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
             new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
 
-#            new FOS\UserBundle\FOSUserBundle(),
-            new FOS\RestBundle\FOSRestBundle(),
-            new JMS\SerializerBundle\JMSSerializerBundle(),
-            new Nelmio\ApiDocBundle\NelmioApiDocBundle(),
+            //new FOS\UserBundle\FOSUserBundle(),
+            //new FOS\RestBundle\FOSRestBundle(),
+            //new JMS\SerializerBundle\JMSSerializerBundle(),
+            //new Nelmio\ApiDocBundle\NelmioApiDocBundle(),
+
+            new AppBundle\AppBundle(),
         );
 
         if (in_array($this->getEnvironment(), ['dev', 'test'])) {
@@ -75,7 +76,7 @@ class AppKernel extends Kernel
     public function getCacheDir()
     {
         if (in_array($this->environment, array('dev', 'test'))) {
-            return '/dev/shm/appname/cache/' .  $this->environment;
+            return '/dev/shm/sf/cache/' .  $this->environment;
         }
 
         return parent::getCacheDir();
@@ -87,7 +88,7 @@ class AppKernel extends Kernel
     public function getLogDir()
     {
         if (in_array($this->environment, array('dev', 'test'))) {
-            return '/dev/shm/appname/logs';
+            return '/dev/shm/sf/logs';
         }
 
         return parent::getLogDir();
