@@ -37,5 +37,5 @@ ssh_options[:forward_agent] = true
 
 after "deploy:finalize_update" do
   run "cd #{current_release} && npm install"
-  run "cd #{current_release}/frontend/admin && gulp"
+  run "cd #{current_release}/frontend/app && gulp"
 end
